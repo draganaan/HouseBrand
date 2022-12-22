@@ -19,9 +19,11 @@ public class Strings {
 
     public static final String MODNI_DODACI_PAGE_URL = "https://www.housebrand.com/rs/sr/ona/modni-dodaci/kape";
 
+    public static final String OPADAJUCI_NIZ_PAGE_URL = "https://www.housebrand.com/rs/sr/ona/modni-dodaci/kape/sb/1";
+
 
 //  Error messages
-   public static final String SEARCH_ERROR_MSG = "Za vašu pretragu „%TEXT%” nema rezultata.";
+   public static final String SEARCH_ERROR_MSG = "Nema rezultata pretrage za: „%TEXT%”.";
 
     public static final String ERROR_MSG = "NEVAZECE PRIJAVLJIVANJE ILI LOZINKA";
 

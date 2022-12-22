@@ -4,8 +4,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.FindBy;
 
-import static jdk.nashorn.internal.objects.Global.print;
-
 public class ModniDodaciPage extends BasePage {
 
 //    web elementi
@@ -62,12 +60,12 @@ public class ModniDodaciPage extends BasePage {
         sortButton.click();
     }
 
-    public void selectRadioButton1() {
-        print("SelectRadioButton1");
-        radioButton1.click();}
-
-    public void selectRadioButton2() {
-        print("SelectRadioButton2");
-        radioButton2.click();}
+//    public void selectRadioButton1() {
+//        print("SelectRadioButton1");
+//        radioButton1.click();}
+//
+//    public void selectRadioButton2() {
+//        print("SelectRadioButton2");
+//        radioButton2.click();}
 
 }

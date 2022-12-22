@@ -33,7 +33,7 @@ public class SearchForItemPage extends BasePage {
             List<WebElement> elements = driver.findElements(By.xpath(customXpath));
             assert elements.size() != 0 : "Array is empty";
             elements.get(0).click();
-            ItemPage itemPage = new itemPage(driver);
+            ItemPage itemPage = new ItemPage(driver);
             String actualTitle = itemPage.getItemName2();
             assert actualTitle.contains((itemName1)) : "Error. Wrong title name. Exptected:" + itemName1 + " . Actual: " + actualTitle;
         }

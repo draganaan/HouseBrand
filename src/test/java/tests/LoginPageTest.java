@@ -14,7 +14,7 @@ public class LoginPageTest extends BaseTest {
         ChromeDriver driver = openChromeDriver();
         try {
             HomePage homePage = new HomePage(driver);
-            Select dropDown = new Select(loginDropdown);
+            Select dropDown = new Select(homePage.loginDropDown);
             dropDown.selectByVisibleText("Nalog");
             assert homePage.getTextFromLoginIcon().equals("Nalog") : "Wrong text on icon. Expected: Nalog, Actual " + homePage.getTextFromLoginIcon();
             homePage.clickLoginIcon();

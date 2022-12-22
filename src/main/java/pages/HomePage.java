@@ -4,8 +4,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.FindBy;
 
-import static jdk.nashorn.internal.objects.Global.print;
-
 public class HomePage extends BasePage {
 
     //web elementi
@@ -30,7 +28,6 @@ public class HomePage extends BasePage {
         super(driver);
         driver.get("https://www.housebrand.com/rs/sr/");
         print("Home page");
-        this.clickAcceptInCookie();
         assert driver.getCurrentUrl().equals(Strings.HOME_PAGE_URL) : "Wrong page. Expected "
                 + Strings.HOME_PAGE_URL + " . Actual " + driver.getCurrentUrl();
         this.clickAcceptInCookie();

@@ -5,8 +5,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import static jdk.nashorn.internal.objects.Global.print;
-
 public class LoginPage extends BasePage {
 
 
@@ -58,7 +56,7 @@ public class LoginPage extends BasePage {
 
     public void clickLoginButton() {
         assert loginButton.isDisplayed() : "Login button is not present";
-        loginButton.click();
+        loginButton.click();}
 
 
         /**
@@ -78,7 +76,7 @@ public class LoginPage extends BasePage {
 
         }
     }
-}
+
 
 
 

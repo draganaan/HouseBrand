@@ -10,7 +10,7 @@ public class SearchResultInvalidPage extends BasePage {
     @FindBy(xpath = "div@class='search-content open full']")
     WebElement searchResultInvalid;
 
-    @FindBy(xpath = "div@data-testid='products-results']")
+    @FindBy(xpath = "//div[@data-testid='products-results']")
     WebElement searchErrorMessage;
 
 

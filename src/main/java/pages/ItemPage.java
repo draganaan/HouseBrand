@@ -12,10 +12,11 @@ public class ItemPage extends BasePage {
     //web elementi
 
     @FindBy(xpath = "//h1[@data-testid='product-name']")
-    WebElement ItemName2;
+    WebElement itemName2;
 
     public String getItemName2() {
         return itemName2.getText();
+    }
 
         // constructor
     public ItemPage(ChromeDriver driver) {
@@ -25,4 +26,4 @@ public class ItemPage extends BasePage {
         }
     }
 
-}
+

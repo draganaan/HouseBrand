@@ -12,10 +12,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
-import java.util.concurrent.TimeUnit;
-
-import static jdk.internal.org.jline.utils.Colors.s;
-import static jdk.nashorn.internal.objects.Global.print;
 
 
 public class BasePage {
@@ -36,7 +32,9 @@ public class BasePage {
 
 
     @FindBy(xpath = "//label[text() = 'Sortiraj po']")
+    public
     WebElement loginDropDown;
+    //div[@id='cookieBannerOverlay']
 
     @FindBy(xpath = "//div[@class='account-dropdown__AccountStatus-sc-1n5qybn-1 BxBzZ']")
     WebElement loginIcon;
@@ -55,7 +53,6 @@ public class BasePage {
     WebElement cookieAcceptButton;
 
 
-
     //    constructor
     ChromeDriver driver = null;
 
@@ -64,7 +61,6 @@ public class BasePage {
     public BasePage(ChromeDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
-        clickAcceptInCookie();
     }
 
     public void clickShoppingCartIcon() {
@@ -88,7 +84,7 @@ public class BasePage {
     }
 
     public void waitForElement(WebElement element) {
-        WebDriverWait wait = new WebDriverWait(driver, 5);
+        WebDriverWait wait = new WebDriverWait(driver, 2);
         wait.until(ExpectedConditions.visibilityOf(element));
     }
 

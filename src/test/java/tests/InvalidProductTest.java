@@ -28,7 +28,7 @@ public class InvalidProductTest extends BaseTest{
         try {
             HomePage homePage = new HomePage(driver);
             sleep();
-            homePage.searchAndSubmit("blabla");
+            homePage.searchAndSubmit(invalidBrand);
             SearchResultInvalidPage searchResultPage = new SearchResultInvalidPage(driver);
             sleep();
             assert !searchResultPage.isSearchResultsPresent() : "There should be no results, but there ARE";
