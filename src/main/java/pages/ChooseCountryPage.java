@@ -9,12 +9,11 @@ public class ChooseCountryPage extends BasePage {
 
 //    web elementi
 
-    @FindBy(xpath = "//a[@normalize-space()='Slovenija / Slovenia']")
+    @FindBy(xpath = "//a[normalize-space()='Slovenija / Slovenia']")
     WebElement chooseCountryButton;
 
     public ChooseCountryPage(ChromeDriver driver) {
         super(driver);
-        assert driver.getCurrentUrl().equals(Strings.SL_PAGE_URL) : "User is not on Checkout page";
     }
 
     public void clickChooseCountryButton() {

@@ -18,7 +18,6 @@ public class ChooseCountryTest extends BaseTest{
         try {
             HomePage homePage = new HomePage(driver);
             homePage.clickCountryIcon();
-            driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
             ChooseCountryPage chooseCountryPage = new ChooseCountryPage(driver);
             chooseCountryPage.clickChooseCountryButton();
             assert isCurrentURLEqualTo(driver,SL_PAGE_URL) : "User is NOT on expected page. " +
