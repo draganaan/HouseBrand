@@ -38,7 +38,7 @@ import pages.Strings;
 
         public boolean isCurrentURLEqualTo(ChromeDriver driver, String expectedUrl) {
             print("isCurrentURLEqualTo ( " + expectedUrl + " )");
-            String currentUrl = this.driver.getCurrentUrl();
+            String currentUrl = driver.getCurrentUrl();
             print("User is on " + currentUrl);
             boolean b = currentUrl.equals(expectedUrl);
             return b;

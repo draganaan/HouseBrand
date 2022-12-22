@@ -11,7 +11,7 @@ public class Strings {
 
     public static final String PRODUCT_PAGE_URL = "https://www.housebrand.com/rs/sr/praznicni-dzemper-2326p-mlc";
     public static final String CHECKOUT_PAGE_URL = "https://www.housebrand.com/rs/sr/checkout/cart/";
-    public static final String LOGIN_PAGE_URL = "https://www.housebrand.com/rs/sr/customer/account/login/#login/";
+    public static final String LOGIN_PAGE_URL = "https://www.housebrand.com/rs/sr/customer/account/login/#login";
 
     public static final String SL_PAGE_URL = "https://www.housebrand.com/si/sl/";
 

@@ -14,10 +14,8 @@ public class LoginPageTest extends BaseTest {
         ChromeDriver driver = openChromeDriver();
         try {
             HomePage homePage = new HomePage(driver);
-            Select dropDown = new Select(homePage.loginDropDown);
-            dropDown.selectByVisibleText("Nalog");
-            assert homePage.getTextFromLoginIcon().equals("Nalog") : "Wrong text on icon. Expected: Nalog, Actual " + homePage.getTextFromLoginIcon();
             homePage.clickLoginIcon();
+            assert homePage.getTextFromLoginIcon().equals("Nalog") : "Wrong text on icon. Expected: Nalog, Actual " + homePage.getTextFromLoginIcon();
             assert isCurrentURLEqualTo(driver, Strings.LOGIN_PAGE_URL) : "User is NOT on expected page. " +
                     "Expected: " + Strings.LOGIN_PAGE_URL + " . Actual: " + driver.getCurrentUrl();
 

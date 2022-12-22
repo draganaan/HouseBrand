@@ -31,12 +31,12 @@ public class BasePage {
     WebElement searchField;
 
 
-    @FindBy(xpath = "//label[text() = 'Sortiraj po']")
-    public
-    WebElement loginDropDown;
-    //div[@id='cookieBannerOverlay']
+//    @FindBy(xpath = "//div[@id='cookieBannerOverlay']")
+//    public
+//    WebElement loginDropDown;
+    //label[text() = 'Sortiraj po']
 
-    @FindBy(xpath = "//div[@class='account-dropdown__AccountStatus-sc-1n5qybn-1 BxBzZ']")
+    @FindBy(xpath = "//p[normalize-space()='Nalog']")
     WebElement loginIcon;
 
     @FindBy(xpath = "//ul[@data-testid='category-list']")
