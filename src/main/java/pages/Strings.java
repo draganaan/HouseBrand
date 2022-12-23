@@ -21,6 +21,8 @@ public class Strings {
 
     public static final String OPADAJUCI_NIZ_PAGE_URL = "https://www.housebrand.com/rs/sr/ona/modni-dodaci/kape/sb/1";
 
+    public static final String INSTAGRAM_PAGE_URL = "https://www.instagram.com/house_brand/#";
+
 
 //  Error messages
    public static final String SEARCH_ERROR_MSG = "Nema rezultata pretrage za: „%TEXT%”.";

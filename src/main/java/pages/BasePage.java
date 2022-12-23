@@ -39,7 +39,7 @@ public class BasePage {
     @FindBy(xpath = "//p[normalize-space()='Nalog']")
     WebElement loginIcon;
 
-    @FindBy(xpath = "//ul[@data-testid='category-list']")
+    @FindBy(xpath = "//div[@class='menu-bar__MenuBar-tiitle-0 cousg']")
     WebElement mainMenuBar;
 
 
@@ -74,7 +74,7 @@ public class BasePage {
 //        JavascriptExecutor js = (JavascriptExecutor) driver;
 //        js.executeScript("arguments[0].mouseOver()", element);
         Actions actions = new Actions(driver);
-        actions.moveToElement(element).perform();
+        actions.moveToElement(mainMenuBar).perform();
     }
 
 
