@@ -35,7 +35,7 @@ public class AddOneItemTest extends BaseTest {
         print("Log into Housebrand");
         try {
             HomePage homePage = new HomePage(driver);
-            homePage.hoverOnaMenuOptions();
+            homePage.clickAcceptInCookie();
             homePage.chooseDzemperiFromSubMenu();
 
             String currentUrl = driver.getCurrentUrl();

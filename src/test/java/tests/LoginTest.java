@@ -16,7 +16,7 @@ public class LoginTest extends BaseTest{
         ChromeDriver driver =  new ChromeDriver();
         try {
             HomePage homePage = new HomePage (driver);
-            homePage.clickAcceptInCookie();
+            homePage.clickLoginIcon();
             driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
             LoginPage loginPage = new LoginPage(driver);
             loginPage.enterUserName("dragana.antonijevi@gmail.com");

@@ -25,7 +25,7 @@ public class Strings {
 //  Error messages
    public static final String SEARCH_ERROR_MSG = "Nema rezultata pretrage za: „%TEXT%”.";
 
-    public static final String ERROR_MSG = "NEVAZECE PRIJAVLJIVANJE ILI LOZINKA";
+    public static final String ERROR_MSG = "Nevažeće prijavljivanje ili lozinka.";
 
 //    Text
     public static final String TEXT = "Nalog";
