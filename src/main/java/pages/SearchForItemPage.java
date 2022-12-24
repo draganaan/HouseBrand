@@ -24,20 +24,23 @@ public class SearchForItemPage extends BasePage {
 
     public String getItemName1() {
 
-        return itemName1.getText();}
-
-        //    @param itemName
-        public void clickOnItem(String itemName1){
-            waitForElement(searchResultsDisplay);
-            String customXpath = "//a[@class='" + itemName1 + "']";
-            List<WebElement> elements = driver.findElements(By.xpath(customXpath));
-            assert elements.size() != 0 : "Array is empty";
-            elements.get(0).click();
-            ItemPage itemPage = new ItemPage(driver);
-            String actualTitle = itemPage.getItemName2();
-            assert actualTitle.contains((itemName1)) : "Error. Wrong title name. Exptected:" + itemName1 + " . Actual: " + actualTitle;
-        }
-
-
+        return itemName1.getText();
     }
 
+    //    @param itemName
+    public void clickOnItem(String itemName1) {
+        waitForElement(searchResultsDisplay);
+
+        List<WebElement> items = driver.findElements(By.xpath("//*[@class='hit-item__StyledHitItem-cz15ax-0 jJIhtX']"));
+        for (WebElement item : items) {
+            String curentItemName = item.findElement(By.xpath(".//*[@class='hit-item__Title-cz15ax-4 gVHAjV']")).getText();
+            if (curentItemName.contains(itemName1)) {
+                scrollToElement(item);
+                item.click();
+                break;
+            }
+
+
+        }
+    }
+}

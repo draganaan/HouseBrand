@@ -5,9 +5,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
-import pages.BasePage;
-import pages.HomePage;
-import pages.SearchForItemPage;
+import pages.*;
+
+import java.util.concurrent.TimeUnit;
 
 public class SearhForItemTest extends BaseTest {
 
@@ -35,11 +35,13 @@ public class SearhForItemTest extends BaseTest {
 
             print("3.From search results find that item and click on it");
             SearchForItemPage searchForItemPage = new SearchForItemPage(driver);
-            searchForItemPage.clickOnItem("kaput na vezivanje crni");
-
-            print("Verify that the same item you searched is shown on item page");
+            searchForItemPage.clickOnItem("Kaput na vezivanje crni");
+            ProductPage productPage = new ProductPage(driver, null);
+            productPage.clickCloseDiscountDialogButton();
+            print("Verify that the same item you searched is shown on product page");
             String actualTitle = driver.findElement(By.xpath("//h1[@data-testid='product-name']")).getText();
-            assert "KAPUT NA VEZIVANJE CRNI ".contains(actualTitle) : "Error. Expected title to be: " + "KAPUT NA VEZIVANJE CRNI " + ".Actual: " + actualTitle;
+
+            assert "Kaput na vezivanje crni".contains(actualTitle) : "Error. Expected title to be: " + " Kaput na vezivanje crni " + ".Actual: " + actualTitle;
 
 
         } finally {

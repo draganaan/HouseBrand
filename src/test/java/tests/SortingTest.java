@@ -52,7 +52,7 @@ public class SortingTest extends BaseTest {
             ArrayList<Double> nizCena = new ArrayList<Double>();
             for (WebElement item : listaItemaNakonSortiranja) {
                 driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-                String cena = item.findElement(By.xpath("//*[@class='sc-kEjbQP gqMdWQ es-product'].//p[text()='price']").getText();
+                String cena = item.findElement(By.xpath("//secton[@class='sc-bkzYnD lniMCp es-product-price']")).getText();
                 int end = cena.indexOf("RSD");
 
                 Double cenaKaoDecimalanBroj = Double.valueOf(cena.substring(0, end).replace(",",".").replace(" ", ""));
@@ -61,7 +61,7 @@ public class SortingTest extends BaseTest {
 
             System.out.println("Niz cena : " + nizCena.toString());
 
-            //provera da li je niz padajući
+            //provera da li je lista u opadajućem nizu
 
             for (int i = 0; i < nizCena.size() - 1; i++) {
                 assert nizCena.get(i) >= nizCena.get(i + 1) : " Prvi : " + nizCena.get(i) + " nije veći ili jednak od drugog " + nizCena.get(i + 1);

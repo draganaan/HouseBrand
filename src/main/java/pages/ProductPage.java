@@ -23,12 +23,21 @@ public class ProductPage extends BasePage {
     @FindBy(xpath = "//button[@class='styled__closeButton-sc-habse-4 ivTqDP']")
     WebElement closeDiscountDialogButton;
 
+    @FindBy(xpath = "//h1[@data-testid='product-name']")
+    WebElement itemName2;
+
 
     // constructor
-    public ProductPage(ChromeDriver driver) {
+    public ProductPage(ChromeDriver driver, String pageURL) {
         super(driver);
-        assert driver.getCurrentUrl().equals(Strings.PRODUCT_PAGE_URL) : "Wrong page. Expected "
-                + Strings.PRODUCT_PAGE_URL + " . Actual " + driver.getCurrentUrl();
+        if(pageURL != null) {
+            assert driver.getCurrentUrl().equals(pageURL) : "Wrong page. Expected "
+                    + pageURL + " . Actual " + driver.getCurrentUrl();
+        }
+    }
+
+    public String getItemName2() {
+        return itemName2.getText();
     }
 
     public void clickSizeButton() {

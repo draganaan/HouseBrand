@@ -8,10 +8,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
-import pages.CheckOutPage;
-import pages.DzemperiKardiganiPage;
-import pages.HomePage;
-import pages.ProductPage;
+import pages.*;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -55,7 +52,7 @@ public class AddOneItemTest extends BaseTest {
             dzemperiKardiganiPage.clickProductNameButton();
 
             print("Click on size of the product and add to cart");
-            ProductPage productPage = new ProductPage(driver);
+            ProductPage productPage = new ProductPage(driver, Strings.PRODUCT_PAGE_URL);
             productPage.clickCloseDiscountDialogButton();
             productPage.clickSizeButton();
             productPage.addToCartButton();
