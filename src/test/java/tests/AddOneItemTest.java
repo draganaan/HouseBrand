@@ -1,12 +1,20 @@
 package tests;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 import pages.CheckOutPage;
 import pages.DzemperiKardiganiPage;
 import pages.HomePage;
 import pages.ProductPage;
 
+import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 
 public class AddOneItemTest extends BaseTest {
@@ -35,9 +43,8 @@ public class AddOneItemTest extends BaseTest {
         print("Log into Housebrand");
         try {
             HomePage homePage = new HomePage(driver);
-            homePage.hoverOnaMenuOptions();
+            driver.manage().window().maximize();
             homePage.chooseDzemperiFromSubMenu();
-
             String currentUrl = driver.getCurrentUrl();
             assert currentUrl.equals("https://www.housebrand.com/rs/sr/ona/odeca/dzemperi-kardigani") : "Wrong url. Actual " + currentUrl;
 
@@ -49,6 +56,7 @@ public class AddOneItemTest extends BaseTest {
 
             print("Click on size of the product and add to cart");
             ProductPage productPage = new ProductPage(driver);
+            productPage.clickCloseDiscountDialogButton();
             productPage.clickSizeButton();
             productPage.addToCartButton();
             productPage.clickConfirmationtButton();

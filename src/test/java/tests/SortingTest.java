@@ -10,6 +10,7 @@ import pages.ModniDodaciPage;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import static pages.Strings.MODNI_DODACI_PAGE_URL;
 import static pages.Strings.SL_PAGE_URL;
@@ -23,15 +24,18 @@ public class SortingTest extends BaseTest {
 
             print("1.Navigate to Housebrand");
             HomePage homePage = new HomePage(driver);
-            homePage.hoverOnaMenuOptions();
+            driver.manage().window().maximize();
             homePage.chooseKapeFromSubMenu();
             assert isCurrentURLEqualTo(driver, MODNI_DODACI_PAGE_URL) : "User is NOT on expected page. " +
                     "Expected: " + MODNI_DODACI_PAGE_URL + " . Actual: " + driver.getCurrentUrl();
 
             ModniDodaciPage modniDodaciPage = new ModniDodaciPage(driver);
             modniDodaciPage.clickSort();
+            driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
             modniDodaciPage.chooseOptionOpadajuce();
+            driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
             modniDodaciPage.clickSortButton();
+            driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 //            Select dropDownWebElement = new Select();
 //            dropDownWebElement.selectByVisibleText("Cena opadajuće");
 
@@ -42,13 +46,16 @@ public class SortingTest extends BaseTest {
 
             //sortiranje itema
 
-
+            driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
             List<WebElement> listaItemaNakonSortiranja = driver.findElements(By.xpath("//*[@class='sc-kEjbQP gqMdWQ es-product']"));
 
             ArrayList<Double> nizCena = new ArrayList<Double>();
             for (WebElement item : listaItemaNakonSortiranja) {
-                String cena = item.findElement(By.xpath(".//p[@class='es-final-price']")).getText().replace("RSD", "");
-                Double cenaKaoDecimalanBroj = Double.valueOf(cena);
+                driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+                String cena = item.findElement(By.xpath("//*[@class='sc-kEjbQP gqMdWQ es-product'].//p[text()='price']").getText();
+                int end = cena.indexOf("RSD");
+
+                Double cenaKaoDecimalanBroj = Double.valueOf(cena.substring(0, end).replace(",",".").replace(" ", ""));
                 nizCena.add(cenaKaoDecimalanBroj);
             }
 

@@ -2,18 +2,19 @@ package pages;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.Select;
+
+import java.util.concurrent.TimeUnit;
 
 public class HomePage extends BasePage {
 
     //web elementi
-    @FindBy(xpath = "//span[@class='menu-link__MenuLink-sc-1q9icnp-0 crxiHB']")
+    @FindBy(xpath = "//span[normalize-space()='Ona']")
     WebElement onaMenuOptions;
 
-    @FindBy(xpath = "//a[@href='https://www.housebrand.com/rs/sr/ona/odeca']")
-    WebElement odecaSubMenuOptions;
-
-    @FindBy(xpath = "//a[@href='https://www.housebrand.com/rs/sr/ona/odeca/dzemperi-kardigani']")
+    @FindBy(xpath = "//div[@class='dropdown__DropDown-sc-7wugq3-0 jFmpPt']//a[@class='menu-link__MenuLink-sc-1q9icnp-0 cQIgWv'][contains(text(),'Džemperi')]")
     WebElement dzemperiSubSubMenuOptions;
 
     @FindBy(xpath = "//div[@class='dropdown__DropDown-sc-7wugq3-0 jFmpPt']//a[@class='menu-link__MenuSubCategory-sc-1q9icnp-2 jWSgsd'][normalize-space()='Cipele & modni dodaci']")
@@ -21,7 +22,6 @@ public class HomePage extends BasePage {
 
     @FindBy(xpath = "//div[@class='dropdown__DropDown-sc-7wugq3-0 jFmpPt']//a[@class='menu-link__MenuLink-sc-1q9icnp-0 cQIgWv'][normalize-space()='Kape']")
     WebElement kapeSubSubMenuOptions;
-
 
     // constructor
     public HomePage(ChromeDriver driver) {
@@ -33,23 +33,25 @@ public class HomePage extends BasePage {
         this.clickAcceptInCookie();
     }
 
-    public void hoverOnaMenuOptions() {
-        hoverOverElement(onaMenuOptions);
-    }
-
     public void chooseDzemperiFromSubMenu() {
         hoverOverElement(onaMenuOptions);
-        hoverOverElement(odecaSubMenuOptions);
-        hoverOverElement(dzemperiSubSubMenuOptions);
-        dzemperiSubSubMenuOptions.click();
-
+        hoverClickOverElement(dzemperiSubSubMenuOptions);
     }
 
-    public void chooseKapeFromSubMenu(){
+    public void chooseKapeFromSubMenu() {
         hoverOverElement(onaMenuOptions);
-        hoverOverElement(cipeleModniDodaciSubMenuOptions);
-        hoverOverElement(kapeSubSubMenuOptions);
-        kapeSubSubMenuOptions.click();
+        hoverClickOverElement(kapeSubSubMenuOptions);
+    }
+
+//    public Select(WebElement element) {
+//        String tagName = element.getTagName();
+//        if null != tagName && "select"
 
     }
-}
+
+//    WebElement dropDownWebElement = driver.findElementByXPath("//select");
+//    Select dropdown = new Select (dropDownWebElement);
+//    dropdown.selectByVisibleText ("Džemperi")
+
+
+

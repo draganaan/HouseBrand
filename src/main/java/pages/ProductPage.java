@@ -20,6 +20,9 @@ public class ProductPage extends BasePage {
     @FindBy(xpath = "//a[@data-testid='cart-confirmation-go-to-cart']")
     WebElement productAddedToCart;
 
+    @FindBy(xpath = "//button[@class='styled__closeButton-sc-habse-4 ivTqDP']")
+    WebElement closeDiscountDialogButton;
+
 
     // constructor
     public ProductPage(ChromeDriver driver) {
@@ -30,7 +33,7 @@ public class ProductPage extends BasePage {
 
     public void clickSizeButton() {
         print("clickSizeButton");
-        assert clickSizeIcon.isDisplayed() : "Click size button is not present on page";
+        assert clickSizeIcon.isDisplayed() : "Size button is not present on page";
         clickSizeIcon.click();
     }
 
@@ -45,5 +48,11 @@ public class ProductPage extends BasePage {
         waitForElement(productAddedToCart);
         assert productAddedToCart.isDisplayed() : "Product is not present in the cart";
         productAddedToCart.click();
+    }
+
+    public void clickCloseDiscountDialogButton() {
+        print("closeDiscountDialogButton");
+        assert closeDiscountDialogButton.isDisplayed() : "Discount dialog button is not present on page";
+        closeDiscountDialogButton.click();
     }
 }

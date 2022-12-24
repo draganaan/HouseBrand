@@ -12,6 +12,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 
 public class BasePage {
@@ -69,14 +70,6 @@ public class BasePage {
         cartButton.click();
 
     }
-
-    public void hoverOverElement(WebElement element) {
-//        JavascriptExecutor js = (JavascriptExecutor) driver;
-//        js.executeScript("arguments[0].mouseOver()", element);
-        Actions actions = new Actions(driver);
-        actions.moveToElement(mainMenuBar).perform();
-    }
-
 
     public void scrollToElement(WebElement element) {
         JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -150,28 +143,41 @@ public class BasePage {
         cookieAcceptButton.click();
     }
 
-        public void clickInstagramButton() {
-            print("clickInstagramButton()");
-            assert instagramButton.isDisplayed() : "Instagram button is not present on page";
-            instagramButton.click();
-        }
-
-        public void clickCountryIcon() {
-            print("clickCountryIcon()");
-            assert countryIcon.isDisplayed() : "Country button is not present on page";
-            countryIcon.click();
-        }
-
-        public void clickLoginIcon() {
-            print("clickLoginIcon");
-            assert loginIcon.isDisplayed() : "Login icon is not present on page";
-            loginIcon.click();
-        }
-        public void print(String s){
-            System.out.println(s);
-        }
-
+    public void clickInstagramButton() {
+        print("clickInstagramButton()");
+        assert instagramButton.isDisplayed() : "Instagram button is not present on page";
+        instagramButton.click();
     }
+
+    public void clickCountryIcon() {
+        print("clickCountryIcon()");
+        assert countryIcon.isDisplayed() : "Country button is not present on page";
+        countryIcon.click();
+    }
+
+    public void clickLoginIcon() {
+        print("clickLoginIcon");
+        assert loginIcon.isDisplayed() : "Login icon is not present on page";
+        loginIcon.click();
+    }
+
+    public void hoverOverElement(WebElement element) {
+        Actions actions = new Actions(driver);
+        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        actions.moveToElement(element).perform();
+    }
+
+    public void hoverClickOverElement(WebElement element) {
+        Actions actions = new Actions(driver);
+        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        actions.moveToElement(element).click().perform();
+    }
+
+    public void print(String s) {
+        System.out.println(s);
+    }
+
+}
 
 
 

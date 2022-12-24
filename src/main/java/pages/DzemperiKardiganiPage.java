@@ -20,17 +20,15 @@ public class DzemperiKardiganiPage extends BasePage {
     }
 
 
-
     public DzemperiKardiganiPage(ChromeDriver driver) {
-                super(driver);
-                assert driver.getCurrentUrl().equals(Strings.CHECKOUT_PAGE_URL) : "User is not on Checkout page";
-            }
+        super(driver);
+//                assert driver.getCurrentUrl().equals(Strings.CHECKOUT_PAGE_URL) : "User is not on Checkout page";
 
-
-
-    public void clickProductNameButton() {
-        print("clickProductNameButton");
-        assert productName.isDisplayed() : "Product name button is NOT present";
-        productName.click();
     }
-}
+        public void clickProductNameButton() {
+            print("clickProductNameButton");
+            assert productName.isDisplayed() : "Product name button is NOT present";
+            productName.click();
+        }
+    }
+
