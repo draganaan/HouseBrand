@@ -19,15 +19,15 @@ import static pages.Strings.SL_PAGE_URL;
 
 
 /**
- * Search for item and click on it
+ * Sorting item in descending order
  * <p>
  * Test steps:
  * 1. Navigate to Housebrand
  * 2. Enter an item name in search field
- * 3. From search results clik on sort button (Sortiraj po od više cene ka nižoj)
+ * 3. From search results clik on sort button (Sortiraj od više cene ka nižoj)
  * <p>
  * Expected result:
- * 3. Verify that the item we searched is in the descending array
+ * 4. Verify that the item we searched is in the descending order
  */
 public class SortingTest extends BaseTest {
 

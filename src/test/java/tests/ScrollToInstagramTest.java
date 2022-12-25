@@ -8,6 +8,16 @@ import java.util.ArrayList;
 
 public class ScrollToInstagramTest extends BaseTest{
 
+    /**
+     * Scroll to instagram icon
+     * steps:
+     * 1. Navigate to home page
+     * 2. Scroll to instagram button and click on it
+     * <p>
+     * Expected result:
+     * 3. Verify that we are on instagram page
+     */
+
     @Test
     public void scrollToInstagram() {
         ChromeDriver driver = openChromeDriver();

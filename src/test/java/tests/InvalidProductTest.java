@@ -12,11 +12,11 @@ public class InvalidProductTest extends BaseTest{
      * Search for invalid brand
      * steps:
      * 1. Navigate to home page
-     * 2. enter invalid brand name into search field
-     * 3. click search and submit button
+     * 2. Enter invalid brand name into search field
+     * 3. Click search and submit button
      * <p>
      * Expected result:
-     * 3. Verify that the there are NOT search results and that is shown Error message
+     * 4. Verify that the there are NOT search results and that is shown Error message
      */
 
 

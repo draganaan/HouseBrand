@@ -11,6 +11,17 @@ import java.util.concurrent.TimeUnit;
 
 public class LoginTest extends BaseTest{
 
+    /**
+     * Search for invalid brand
+     * steps:
+     * 1. Navigate to home page
+     * 2. click login icon
+     * 3. On the login page enter credentials (invalid password) and click confirmation button
+     * <p>
+     * Expected result:
+     * 4. Verify that the error message is shown
+     */
+
     @Test
     public void loginWithInValidPassword() {
         ChromeDriver driver =  new ChromeDriver();

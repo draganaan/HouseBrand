@@ -20,7 +20,7 @@ public class SearhForItemTest extends BaseTest {
      * 3. From search results find that item and click on it
      * <p>
      * Expected result:
-     * 3. Verify that the same item you searched in step 2 is shown on item page
+     * 4. Verify that the same item you searched in previous step is shown on item page
      */
     @Test
     public void testSearch() {

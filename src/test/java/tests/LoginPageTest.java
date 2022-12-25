@@ -9,6 +9,16 @@ import pages.Strings;
 
 public class LoginPageTest extends BaseTest {
 
+    /**
+     * Login page
+     * steps:
+     * 1. Navigate to home page
+     * 2. Click login icon
+     * <p>
+     * Expected result:
+     * 3. Verify that we are on the Login page
+     */
+
     @Test
     public void loginPageTest() {
         ChromeDriver driver = openChromeDriver();

@@ -12,6 +12,17 @@ import static pages.Strings.*;
 
 public class ChooseCountryTest extends BaseTest{
 
+    /**
+     * Choose country
+     * steps:
+     * 1. Navigate to home page
+     * 2. Click country icon
+     * 3. On the next page choose country
+     * <p>
+     * Expected result:
+     * 4. Verify that the right country url is shown
+     */
+
     @Test
     public void chooseCountry() {
         ChromeDriver driver = openChromeDriver();
