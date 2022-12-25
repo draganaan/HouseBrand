@@ -1,6 +1,5 @@
 package pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -11,7 +10,6 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 
@@ -19,30 +17,14 @@ public class BasePage {
 
 
     // web elementi zajendički za sve strane
-    @FindBy(xpath = "//a[@data-testid='brand-logo-button']")
-    WebElement logoButton;
-
     @FindBy(xpath = "//button[@data-testid='search-open-button']")
     WebElement searchButton;
-
-    @FindBy(xpath = "//button[@data-selen='cart-button']")
-    WebElement cartButton;
 
     @FindBy(xpath = "//input[@type='search']")
     WebElement searchField;
 
-
-//    @FindBy(xpath = "//div[@id='cookieBannerOverlay']")
-//    public
-//    WebElement loginDropDown;
-    //label[text() = 'Sortiraj po']
-
     @FindBy(xpath = "//p[normalize-space()='Nalog']")
     WebElement loginIcon;
-
-    @FindBy(xpath = "//div[@class='menu-bar__MenuBar-tiitle-0 cousg']")
-    WebElement mainMenuBar;
-
 
     @FindBy(xpath = "//a[normalize-space()='Instagram']")
     WebElement instagramButton;
@@ -55,7 +37,7 @@ public class BasePage {
 
 
     //    constructor
-    ChromeDriver driver = null;
+    ChromeDriver driver;
 
 
     //    metode na stranici
@@ -64,15 +46,8 @@ public class BasePage {
         PageFactory.initElements(driver, this);
     }
 
-    public void clickShoppingCartIcon() {
-        print("clickShoppingCartIcon()");
-        assert cartButton.isDisplayed() : "Cart button is not present on page";
-        cartButton.click();
-
-    }
-
     public void scrollToElement(WebElement element) {
-        JavascriptExecutor js = (JavascriptExecutor) driver;
+        JavascriptExecutor js = driver;
         js.executeScript("arguments[0].scrollIntoView(true);", element);
     }
 
@@ -81,11 +56,8 @@ public class BasePage {
         wait.until(ExpectedConditions.visibilityOf(element));
     }
 
-
     public void clickSearchAndSubmitButton() {
         print("clickSearchAndSubmitButton");
-//        WebDriverWait wait = new WebDriverWait(driver, 5);
-//        wait.until(ExpectedConditions.visibilityOf(searchButton));
         searchButton.click();
     }
 
@@ -105,8 +77,7 @@ public class BasePage {
 
     public boolean isElementPresent(WebElement element) {
         try {
-            boolean isPresent = element.isDisplayed();
-            return true;
+            return element.isDisplayed();
         } catch (Exception e) {
             print(e.getMessage());
             print("Element is not present on page");
@@ -116,25 +87,11 @@ public class BasePage {
 
     public String getTextFromLoginIcon() {
         print("getTextFromLoginIcon()");
-        String text = loginIcon.getText();
-        return text;
-    }
-
-    public void clickOnMainMenuBar(String linkText) {
-        print("clickOnMainMenuBar ( " + linkText + " )");
-        List<WebElement> list = mainMenuBar.findElements(By.xpath(".//li[@data-testid='category-link']"));
-        for (WebElement item : list) {
-            String itemText = item.getText();
-            if (itemText.equals(linkText)) {
-                print("Clicking on " + linkText);
-                item.click();
-                break;
-            }
-        }
+        return loginIcon.getText();
     }
 
     public void scrollToInstagramButton() {
-        JavascriptExecutor js = (JavascriptExecutor) driver;
+        JavascriptExecutor js = driver;
         js.executeScript("arguments[0].scrollIntoView(true);", instagramButton);
     }
 

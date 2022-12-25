@@ -3,19 +3,13 @@ package tests;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 import pages.HomePage;
-import pages.ModniDodaciPage;
-import pages.ProductPage;
 import pages.SearchForItemPage;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
-
-import static pages.Strings.MODNI_DODACI_PAGE_URL;
-import static pages.Strings.SL_PAGE_URL;
 
 
 /**
