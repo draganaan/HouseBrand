@@ -37,6 +37,7 @@ public class SearhForItemTest extends BaseTest {
             SearchForItemPage searchForItemPage = new SearchForItemPage(driver);
             searchForItemPage.clickOnItem("Kaput na vezivanje crni");
             ProductPage productPage = new ProductPage(driver, null);
+            driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
             productPage.clickCloseDiscountDialogButton();
             print("Verify that the same item you searched is shown on product page");
             String actualTitle = driver.findElement(By.xpath("//h1[@data-testid='product-name']")).getText();

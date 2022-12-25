@@ -18,6 +18,18 @@ public class SearchForItemPage extends BasePage {
     @FindBy(xpath = "//a[normalize-space()='Kaput na vezivanje crni']")
     WebElement itemName1;
 
+    @FindBy(xpath = "//div[@class='dropdown__Overlay-sc-1j5l1ji-3 dFgHBa']")
+    WebElement searchResults;
+
+    @FindBy(xpath = "//div[@class='header']")
+    WebElement sortDropDown;
+
+    @FindBy(xpath = "//li[contains(text(),'Sortiraj po od više cene ka nižoj')]")
+    WebElement sortButton;
+
+
+
+
     public SearchForItemPage(ChromeDriver driver) {
         super(driver);
     }
@@ -43,4 +55,16 @@ public class SearchForItemPage extends BasePage {
 
         }
     }
+
+    public void clickSort() {
+        print("clickSort");
+        assert sortDropDown.isDisplayed() : "Sort dropdown is not present on page";
+        sortDropDown.click();}
+    public void clickSortButton() {
+        print("ClickSortButton");
+        assert sortButton.isDisplayed() : "Option opadajuce is not present on page";
+        sortButton.click();}
+
+
+
 }

@@ -23,14 +23,6 @@ public class ModniDodaciPage extends BasePage {
     @FindBy(xpath = "//p[@class='es-final-price']")
     WebElement cenaItema;
 
-//    @FindBy(xpath = "//div")
-//    WebElement dropDownWebElement;
-
-//    @FindBy(id = "sortBy-0")
-//    WebElement radioButton1;
-//
-//    @FindBy(id = "sortBy-2")
-//    WebElement radioButton2;
 
 
 

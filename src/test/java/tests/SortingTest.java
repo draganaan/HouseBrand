@@ -7,6 +7,8 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 import pages.HomePage;
 import pages.ModniDodaciPage;
+import pages.ProductPage;
+import pages.SearchForItemPage;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,6 +17,18 @@ import java.util.concurrent.TimeUnit;
 import static pages.Strings.MODNI_DODACI_PAGE_URL;
 import static pages.Strings.SL_PAGE_URL;
 
+
+/**
+ * Search for item and click on it
+ * <p>
+ * Test steps:
+ * 1. Navigate to Housebrand
+ * 2. Enter an item name in search field
+ * 3. From search results clik on sort button (Sortiraj po od više cene ka nižoj)
+ * <p>
+ * Expected result:
+ * 3. Verify that the item we searched is in the descending array
+ */
 public class SortingTest extends BaseTest {
 
     @Test
@@ -25,37 +39,28 @@ public class SortingTest extends BaseTest {
             print("1.Navigate to Housebrand");
             HomePage homePage = new HomePage(driver);
             driver.manage().window().maximize();
-            homePage.chooseKapeFromSubMenu();
-            assert isCurrentURLEqualTo(driver, MODNI_DODACI_PAGE_URL) : "User is NOT on expected page. " +
-                    "Expected: " + MODNI_DODACI_PAGE_URL + " . Actual: " + driver.getCurrentUrl();
 
-            ModniDodaciPage modniDodaciPage = new ModniDodaciPage(driver);
-            modniDodaciPage.clickSort();
+            print("2.Enter an item name in search field");
+            homePage.searchAndSubmit("marama");
+
+            SearchForItemPage searchForItemPage = new SearchForItemPage(driver);
+            searchForItemPage.clickSort();
             driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-            modniDodaciPage.chooseOptionOpadajuce();
+            searchForItemPage.clickSortButton();
             driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-            modniDodaciPage.clickSortButton();
-            driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-//            Select dropDownWebElement = new Select();
-//            dropDownWebElement.selectByVisibleText("Cena opadajuće");
-
-
-//            ModniDodaciPage.selectRadioButton1();
-//            ModniDodaciPage.selectRadioButton2();
-
+//
 
             //sortiranje itema
-
             driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-            List<WebElement> listaItemaNakonSortiranja = driver.findElements(By.xpath("//*[@class='sc-kEjbQP gqMdWQ es-product']"));
+            List<WebElement> listaItemaNakonSortiranja = driver.findElements(By.xpath("//*[@class='hit-item__ProductInfo-cz15ax-2 gFMTte']"));
 
             ArrayList<Double> nizCena = new ArrayList<Double>();
             for (WebElement item : listaItemaNakonSortiranja) {
-                driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-                String cena = item.findElement(By.xpath("//secton[@class='sc-bkzYnD lniMCp es-product-price']")).getText();
-                int end = cena.indexOf("RSD");
+                String cena = item.findElement(By.xpath(".//div[@class='product-price__PromoPrice-sc-1ftsh9w-1 bDVVCG']")).getText();
 
-                Double cenaKaoDecimalanBroj = Double.valueOf(cena.substring(0, end).replace(",",".").replace(" ", ""));
+                int currencyPosition = cena.indexOf("RSD");
+
+                Double cenaKaoDecimalanBroj = Double.valueOf(cena.substring(0,currencyPosition).trim());
                 nizCena.add(cenaKaoDecimalanBroj);
             }
 
@@ -64,11 +69,13 @@ public class SortingTest extends BaseTest {
             //provera da li je lista u opadajućem nizu
 
             for (int i = 0; i < nizCena.size() - 1; i++) {
-                assert nizCena.get(i) >= nizCena.get(i + 1) : " Prvi : " + nizCena.get(i) + " nije veći ili jednak od drugog " + nizCena.get(i + 1);
+                assert nizCena.get(i) >= nizCena.get(i + 1) : " Cena : " + nizCena.get(i) + " nije veća ili jednaka od cene " + nizCena.get(i + 1) + " narednog elementa!" ;
             }
 
         } finally {
             driver.quit();
         }
     }
+
+
 }
