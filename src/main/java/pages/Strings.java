@@ -22,6 +22,9 @@ public class Strings {
     public static final String OPADAJUCI_NIZ_PAGE_URL = "https://www.housebrand.com/rs/sr/ona/modni-dodaci/kape/sb/1";
 
     public static final String INSTAGRAM_PAGE_URL = "https://www.instagram.com/house_brand/#";
+    public static final String MVELICINA_PAGE_URL = "https://www.housebrand.com/rs/sr/on/modni-dodaci/pidzame-kucni-ogrtaci/s/m";
+
+
 
 
 //  Error messages

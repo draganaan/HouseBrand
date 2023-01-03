@@ -23,6 +23,17 @@ public class HomePage extends BasePage {
     @FindBy(xpath = "//div[@class='dropdown__DropDown-sc-7wugq3-0 jFmpPt']//a[@class='menu-link__MenuLink-sc-1q9icnp-0 cQIgWv'][normalize-space()='Kape']")
     WebElement kapeSubSubMenuOptions;
 
+    @FindBy(xpath = "//span[normalize-space()='On']")
+    WebElement onMenuOptions;
+
+    @FindBy(xpath = "//div[@class='dropdown__DropDown-sc-7wugq3-0 jFmpPt']//a[@class='menu-link__MenuLink-sc-1q9icnp-0 cQIgWv'][contains(text(),'Pidžame, kućni ogrtači')]")
+    WebElement pidzameKucniOgrtaciSubMenuOptions;
+
+
+
+
+
+
     // constructor
     public HomePage(ChromeDriver driver) {
         super(driver);
@@ -42,6 +53,12 @@ public class HomePage extends BasePage {
         hoverOverElement(onaMenuOptions);
         hoverClickOverElement(kapeSubSubMenuOptions);
     }
+
+    public void choosePidzameKucniOgrtaciFromSubMenu() {
+        hoverOverElement(onMenuOptions);
+        hoverClickOverElement(pidzameKucniOgrtaciSubMenuOptions);
+    }
+
 
 //    public Select(WebElement element) {
 //        String tagName = element.getTagName();

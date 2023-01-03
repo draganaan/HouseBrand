@@ -23,7 +23,7 @@ public class AddOneItemTest extends BaseTest {
      * Steps:
      * 1. Navigate to home page
      * 2. Click Ona button in menu options and choose dzemperi
-     * 3. Scrool to product name on DzemperiKardigani page
+     * 3. Scroll to product name on DzemperiKardigani page
      * 4. Clik product name on DzemperiKardigani page
      * 5. Click size of product and add to cart
      * <p>

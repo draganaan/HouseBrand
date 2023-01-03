@@ -16,6 +16,7 @@ public class DzemperiKardiganiPage extends BasePage {
 //    }
 
     public String productName() {
+
         return productName.getText();
     }
 
