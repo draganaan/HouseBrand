@@ -34,6 +34,8 @@ public class PidzameKucniOgrtaciPage extends BasePage {
     @FindBy(xpath = "//button[normalize-space()='Sort']")
     WebElement sortButton;
 
+    @FindBy(xpath = "//button[@class='styled__closeButton-sc-habse-4 ivTqDP']")
+    WebElement closeDiscountDialogButton;
 
 //    constructor
 
@@ -57,8 +59,8 @@ public class PidzameKucniOgrtaciPage extends BasePage {
     }
 
     public void clickSearchFilterButton() {
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].scrollIntoView(true);", filterButton);
+//        JavascriptExecutor js = (JavascriptExecutor) driver;
+//        js.executeScript("arguments[0].scrollIntoView(true);", filterButton);
         filterButton.click();
     }
 
@@ -80,5 +82,10 @@ public class PidzameKucniOgrtaciPage extends BasePage {
         assert sortButton.isDisplayed() : "Sort button is not present on page";
         sortButton.click();}
 
+    public void clickCloseDiscountDialogButton() {
+        print("closeDiscountDialogButton");
+        assert closeDiscountDialogButton.isDisplayed() : "Discount dialog button is not present on page";
+        closeDiscountDialogButton.click();
+    }
 
 }

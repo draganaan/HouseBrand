@@ -18,7 +18,7 @@ public class SortingTestNew extends BaseTest{
 
 
     @Test
-    public void filterBySize() {
+    public void sortingNew() {
 
         ChromeDriver driver = openChromeDriver();
         try {
@@ -30,6 +30,7 @@ public class SortingTestNew extends BaseTest{
 
 
             PidzameKucniOgrtaciPage pidzameKucniOgrtaciPage = new PidzameKucniOgrtaciPage(driver);
+            pidzameKucniOgrtaciPage.clickCloseDiscountDialogButton();
             pidzameKucniOgrtaciPage.clickSortirajPoButton();
             driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
             pidzameKucniOgrtaciPage.chooseCenaOpadajuce();
