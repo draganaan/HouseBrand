@@ -36,15 +36,15 @@ public class SortingTestNew extends BaseTest{
             pidzameKucniOgrtaciPage.chooseCenaOpadajuce();
             driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
             pidzameKucniOgrtaciPage.clickSortButton();
-//
+            Thread.sleep(500);
 
             //sortiranje itema
-            driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
             List<WebElement> listaItemaNakonSortiranja = driver.findElements(By.xpath("//*[@class='sc-kEjbQP gqMdWQ es-product']"));
-
             ArrayList<Double> nizCena = new ArrayList<Double>();
             for (WebElement item : listaItemaNakonSortiranja) {
-                String cena = item.findElement(By.xpath(".//div[@class='sc-idOiZg gVdoMc']")).getText();
+                String cena = item.findElement(By.xpath(".//div[@class='sc-idOiZg gVdoMc']")).getText()
+                                .replaceAll("\\s+","")
+                                .replaceAll(",",".");
 
                 int currencyPosition = cena.indexOf("RSD");
 
@@ -60,6 +60,8 @@ public class SortingTestNew extends BaseTest{
                 assert nizCena.get(i) >= nizCena.get(i + 1) : " Cena : " + nizCena.get(i) + " nije veća ili jednaka od cene " + nizCena.get(i + 1) + " narednog elementa!" ;
             }
 
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
         } finally {
             driver.quit();
         }
