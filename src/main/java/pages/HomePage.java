@@ -64,11 +64,10 @@ public class HomePage extends BasePage {
 //        String tagName = element.getTagName();
 //        if null != tagName && "select"
 
-    }
 
 //    WebElement dropDownWebElement = driver.findElementByXPath("//select");
 //    Select dropdown = new Select (dropDownWebElement);
 //    dropdown.selectByVisibleText ("Džemperi")
-
+             }
 
 

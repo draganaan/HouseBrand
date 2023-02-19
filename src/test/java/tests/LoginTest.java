@@ -1,6 +1,7 @@
 package tests;
 
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import pages.BasePage;
 import pages.HomePage;
@@ -38,10 +39,10 @@ public class LoginTest extends BaseTest{
             String actualText = loginPage.getSearchErrorMessage();
             assert actualText.equals(Strings.ERROR_MSG) : "Wrong text. " +
                     "Expected: " + Strings.ERROR_MSG + " Actual: " +actualText;
-
-
         }finally {
             driver.quit();
         }
     }
 }
+
+

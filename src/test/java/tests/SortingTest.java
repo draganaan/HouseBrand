@@ -10,6 +10,7 @@ import pages.SearchForItemPage;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+import org.apache.log4j.Logger;
 
 
 /**
@@ -25,8 +26,14 @@ import java.util.concurrent.TimeUnit;
  */
 public class SortingTest extends BaseTest {
 
+    private static Logger logger = Logger.getLogger(SortingTest.class);
     @Test
-    public void SortiranjeUOpadajucemNizu() {
+    public void SortiranjeUOpadajucemNizu(String[] args) {
+
+        logger.info("Helo");
+        print("Hi");
+
+
         ChromeDriver driver = new ChromeDriver();
         try {
 

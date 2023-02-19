@@ -7,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage extends BasePage {
 
-
+//web elementi
     @FindBy(xpath = "//input[@id='login[username]_id']")
     WebElement userNameField;
 
