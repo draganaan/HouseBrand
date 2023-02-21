@@ -30,7 +30,7 @@ import tests.BaseTest;
             //Capturing the screenshot
 
             File f = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-            FileUtils.copyFile(f, new File("C:\\Users\\zukic\\Screenshots"));
+            FileUtils.copyFile(f, new File("C:\\Screenshots\\"));
 
             //screenshot copied from buffer is saved at the mentioned path.
 

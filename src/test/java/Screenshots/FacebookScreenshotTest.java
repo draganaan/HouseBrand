@@ -9,6 +9,7 @@ import org.openqa.selenium.io.FileHandler;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
+import pages.Strings;
 
 import java.io.File;
 import java.time.LocalDateTime;
@@ -23,26 +24,28 @@ public class FacebookScreenshotTest {
     public void captureScreenshot() throws Exception {
 
 // Initiate Firefox browser
-            driver = new ChromeDriver();
+        driver = new ChromeDriver();
 
 // Maximize the browser
-            driver.manage().window().maximize();
+        driver.manage().window().maximize();
 
 // Pass application url
-            driver.get("https://www.facebook.com/");
+        driver.get("https://www.facebook.com/");
 
 // Here we are forcefully passing wrong id so that it will fail our testcase
-            driver.findElement(By.xpath("//input[@id='email']")).sendKeys("xxxx");
-            driver.findElement(By.xpath("//input[@id='pass']")).sendKeys("zzzzz");
-            driver.findElement(By.xpath("//button[@name='login']")).click();
+        driver.findElement(By.xpath("//input[@id='email']")).sendKeys("xxxx");
+        driver.findElement(By.xpath("//input[@id='pass']")).sendKeys("zzzzz");
+        driver.findElement(By.xpath("//button[@name='login']")).click();
 
-            driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 
-            String currentUrl = driver.getCurrentUrl();
+//            String currentUrl = driver.getCurrentUrl();
 
-            assert currentUrl.equals("https://www.facebook.com");
+//        assert currentUrl.equals("https://www.facebook.com");
+        String currentUrl = driver.getCurrentUrl();
+        assert currentUrl.equals("https://www.facebook.com") : "Wrong url. Actual " + currentUrl;
+    }
 
-        }
 
     // It will execute after every test execution
     @AfterMethod

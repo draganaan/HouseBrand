@@ -1,3 +1,4 @@
+/*
 package Screenshots;
 
 import java.io.File;
@@ -28,7 +29,7 @@ public class EntireWebPageTest extends BaseTest {
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();              //always write wait code after this
         driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS); //for page load
-        driver.get("https://www.softwaretestinghelp.com/");                          //Testing webpage
+        driver.get("https://www.housebrand.com/rs/sr/");                          //Testing webpage
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);  //for Implicit wait
 
         WebElement auto = driver.findElement(By.xpath("//ul[@id='mega-menu-primary']/li[6]"));
@@ -50,10 +51,11 @@ public class EntireWebPageTest extends BaseTest {
         //Capturing the Screenshot with the help of  ashot()
 
         Screenshot screenshot=new AShot().takeScreenshot(driver);
-        ImageIO.write(screenshot.getImage(),"PNG",new File("C:\\Users\\zukic\\Screenshots\\entirepage.png"));
+        ImageIO.write(screenshot.getImage(),"PNG",new File("C:\\Screenshots\\"));
 
         //The screenshot to be captured will be in .png image format and would be saved at above mentioned path.
 
         System.out.println("Screenshot for full page is captured successfully!");
     }
 }
+*/
